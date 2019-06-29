@@ -1,7 +1,7 @@
 import java.util.Set;
 
 public interface JokeHistory {
-    Set<JokeID> load();
+    Set<String> load();
 
     void save(Set<Joke> jokes);
 }

@@ -12,7 +12,7 @@ public class FileBasedJokeHistory implements JokeHistory {
     private static Path path = Paths.get("jokes.txt");
 
     @Override
-    public Set<JokeID> load() {
+    public Set<String> load() {
         List<String> strings = null;
         try {
             strings = Files.readAllLines(path);
@@ -20,11 +20,7 @@ public class FileBasedJokeHistory implements JokeHistory {
             e.printStackTrace();
         }
 
-        Set<JokeID> oldJokes = new HashSet<>();
-        for (String string : strings) {
-            oldJokes.add(new JokeID(string));
-        }
-        return oldJokes;
+        return new HashSet<>(strings);
     }
 
     @Override
